@@ -28,6 +28,7 @@ namespace SuperSecureBank
                 dt.Columns.Add("TypeName");
                 dt.Columns.Add("TypeDescription");
                 dt.Columns.Add("Status");
+                dt.Columns.Add("Name");
 
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ssbcon"].ConnectionString))
                 {
@@ -40,14 +41,15 @@ namespace SuperSecureBank
                     {
                         DataRow dr = dt.NewRow();
                         dr["accountID"] = reader.GetInt64 (1);
-                        dr["balance"] = string.Format("{0:C}", reader.GetInt64 (2));
-                        dr["LevelName"] = reader.GetString(3);
-                        dr["LevelDescription"] = reader.GetString(4);
-                        dr["TypeName"] = reader.GetString(5);
-                        dr["TypeDescription"] = reader.GetString(6);
-                        dr["Status"] = reader.GetString(7);
+                        dr["balance"] = string.Format("{0:C}", reader.GetInt64 (3));
+                        dr["LevelName"] = reader.GetString(4);
+                        dr["LevelDescription"] = reader.GetString(5);
+                        dr["TypeName"] = reader.GetString(6);
+                        dr["TypeDescription"] = reader.GetString(7);
+                        dr["Status"] = reader.GetString(8);
+                        dr["Name"] = reader.GetString(2);
 
-                        totalValue += reader.GetInt64 (2);
+                        totalValue += reader.GetInt64 (3);
 
                         dt.Rows.Add(dr);
                     }
@@ -160,12 +162,12 @@ namespace SuperSecureBank
 			return items.ToArray();
 		}
 
-		internal static void CreateAccount(Int64 userID, string accountType, string balance, string accountLevel, Int64 status)
+		internal static void CreateAccount(Int64 userID, string accountType, string balance, string accountLevel, Int64 status, string name)
 		{
             try
             {
-                string insertNewAccount = "INSERT INTO Accounts VALUES ({0}, {1}, {2}, {3}, {4})";
-                insertNewAccount = string.Format(insertNewAccount, userID, accountType, balance, accountLevel, status);
+                string insertNewAccount = "INSERT INTO Accounts VALUES ({0}, {1}, {2}, {3}, {4}, N'{5}')";
+                insertNewAccount = string.Format(insertNewAccount, userID, accountType, balance, accountLevel, status, name);
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ssbcon"].ConnectionString))
                 {
                     conn.Open();

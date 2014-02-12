@@ -3,3 +3,8 @@ C:\Users\Joe\Documents\My Dropbox\Tools\SuperSecureBank\SuperSecureBank\bin\Supe
 C:\Users\Joe\Documents\My Dropbox\Tools\SuperSecureBank\SuperSecureBank\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Joe\Documents\My Dropbox\Tools\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.dll
 C:\Users\Joe\Documents\My Dropbox\Tools\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.pdb
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\bin\SuperSecureBank.dll
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\bin\SuperSecureBank.pdb
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.dll
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.pdb
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.csprojResolveAssemblyReference.cache

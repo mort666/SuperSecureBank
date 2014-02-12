@@ -1,4 +1,4 @@
-/*
+﻿/*
 	SQL Server Dumper
 
 	User Interface: SQL Server Dumper  3.0.8
@@ -23,18 +23,18 @@ INSERT dbo.AccountLevels VALUES (5, N'Platinum', 'Customers with higher account 
 -- `dbo.Accounts`
 SET IDENTITY_INSERT dbo.Accounts ON
 
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512144, 1, 0, 2812, 0, 0)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512145, 1, 3, 12000, 1, 0)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512146, 1, 2, 0, 0, 3)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512147, 5, 5, -500000, 5, 1)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512148, 5, 8, -5000, 0, 1)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512149, 5, 7, -400, 1, 1)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512150, 5, 0, 1100, 2, 0)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512151, 6, 8, -45500, 5, 0)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512152, 5, 1, 0, 1, 0)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512153, 7, 0, 0, 0, 1)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512154, 7, 0, 0, 0, 1)
-INSERT dbo.Accounts (accountID, userID, type, balance, [level], status) VALUES (3512155, 7, 3, 11110000, 5, 1)
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512144, 1, 0, 2812, 0, 0, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512145, 1, 3, 12000, 1, 0, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512146, 1, 2, 0, 0, 3, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512147, 5, 5, -500000, 5, 1, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512148, 5, 8, -5000, 0, 1, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512149, 5, 7, -400, 1, 1, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512150, 5, 0, 1100, 2, 0, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512151, 6, 8, -45500, 5, 0, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512152, 5, 1, 0, 1, 0, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512153, 7, 0, 0, 0, 1, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512154, 7, 0, 0, 0, 1, '')
+INSERT dbo.Accounts (accountID, userID, type, balance, [level], status, name) VALUES (3512155, 7, 3, 11110000, 5, 1, '')
 SET IDENTITY_INSERT dbo.Accounts OFF
 
 

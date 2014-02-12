@@ -34,7 +34,7 @@ namespace SuperSecureBank
 		{
             try{
 			AccountMgmt.CreateAccount(UserMgmt.LookupSession(Request.Cookies[Settings.Default.SessionCookieKey].Value),
-				AccountType.SelectedValue, StartingBalance.Value, AccountLevel.SelectedValue, 1);
+				AccountType.SelectedValue, StartingBalance.Value, AccountLevel.SelectedValue, 1, ApplicantName.Text);
 			Response.Redirect(string.Format(@"ActionDone.aspx?Title=Application Completed&Text=Thank you for applying for a new {0} account with SuperSecure Bank, your applicaiton will be reviewed and a banker will be with you shortly. At any time you can check on the status of your account by going to the <a href=""ViewAccount.aspx"">View Accounts Page</a>", AccountType.SelectedItem));
             }
             catch (Exception ex)

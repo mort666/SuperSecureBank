@@ -68,6 +68,7 @@ CREATE TABLE [dbo].[Accounts](
 	[balance] [bigint] NOT NULL,
 	[level] [bigint] NOT NULL,
 	[status] [bigint] NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
  CONSTRAINT [PK_Accounts] PRIMARY KEY CLUSTERED 
 (
 	[accountID] ASC
@@ -118,7 +119,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE VIEW [dbo].[FriendlyAccounts]
 AS
-SELECT        dbo.Users.userID, dbo.Accounts.accountID, dbo.Accounts.balance, dbo.AccountLevels.Name AS LevelName, dbo.AccountLevels.Description AS LevelDescription, 
+SELECT        dbo.Users.userID, dbo.Accounts.accountID, dbo.Accounts.name, dbo.Accounts.balance, dbo.AccountLevels.Name AS LevelName, dbo.AccountLevels.Description AS LevelDescription, 
                          dbo.AccountTypes.Name AS TypeName, dbo.AccountTypes.Description AS TypeDescription, dbo.AccountStatus.Description AS Status
 FROM            dbo.Users INNER JOIN
                          dbo.Accounts ON dbo.Users.userID = dbo.Accounts.userID INNER JOIN

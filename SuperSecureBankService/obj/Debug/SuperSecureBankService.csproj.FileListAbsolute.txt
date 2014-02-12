@@ -8,3 +8,8 @@ C:\Users\joe\Dropbox\Tools\SuperSecureBank\SuperSecureBankService\bin\SuperSecur
 C:\Users\joe\Dropbox\Tools\SuperSecureBank\SuperSecureBankService\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\joe\Dropbox\Tools\SuperSecureBank\SuperSecureBankService\obj\Debug\SuperSecureBankService.dll
 C:\Users\joe\Dropbox\Tools\SuperSecureBank\SuperSecureBankService\obj\Debug\SuperSecureBankService.pdb
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBankService\bin\SuperSecureBankService.dll
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBankService\bin\SuperSecureBankService.pdb
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBankService\obj\Debug\SuperSecureBankService.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBankService\obj\Debug\SuperSecureBankService.dll
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBankService\obj\Debug\SuperSecureBankService.pdb

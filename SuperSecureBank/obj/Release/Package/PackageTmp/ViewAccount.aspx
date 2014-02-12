@@ -30,6 +30,8 @@
 					SortExpression="TypeDescription"  HtmlEncode="false"/>
 				<asp:BoundField DataField="Status" HeaderText="Current Status" 
 					SortExpression="Status" HtmlEncode="false" />
+                <asp:BoundField DataField="Name" HeaderText="Account Name" 
+					SortExpression="Name" HtmlEncode="false" />
 			</Columns>
 			<RowStyle BackColor="#FFFFFF" />
 		</asp:GridView>
