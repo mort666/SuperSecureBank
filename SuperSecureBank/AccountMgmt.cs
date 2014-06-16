@@ -40,7 +40,7 @@ namespace SuperSecureBank
                     while (reader.Read())
                     {
                         DataRow dr = dt.NewRow();
-                        dr["accountID"] = reader.GetInt64 (1);
+                        dr["accountID"] = string.Format("<a href=\"/ShowAccount.aspx?ShowAccount={0}\">{1}</a>", reader.GetInt64(1), reader.GetInt64(1));
                         dr["balance"] = string.Format("{0:C}", reader.GetInt64 (3));
                         dr["LevelName"] = reader.GetString(4);
                         dr["LevelDescription"] = reader.GetString(5);
