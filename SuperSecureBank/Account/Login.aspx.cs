@@ -10,19 +10,19 @@ using SuperSecureBank.Properties;
 
 namespace SuperSecureBank.Account
 {
-	public partial class Login : System.Web.UI.Page
-	{
-protected void Page_Load(object sender, EventArgs e)
-{
-	if (null != Request.Cookies[Settings.Default.SessionCookieKey])
-	{
-		if (0 != UserMgmt.LookupSession(Request.Cookies[Settings.Default.SessionCookieKey].Value))
-			Response.Redirect("~/Default.aspx");
-	}
-}
+    public partial class Login : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (null != Request.Cookies[Settings.Default.SessionCookieKey])
+            {
+                if (0 != UserMgmt.LookupSession(Request.Cookies[Settings.Default.SessionCookieKey].Value))
+                    Response.Redirect("~/Default.aspx");
+            }
+        }
 
-		protected void LoginButton_Click(object sender, EventArgs e)
-		{
+        protected void LoginButton_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (UserMgmt.UserExists(UserName.Text))
@@ -54,13 +54,13 @@ protected void Page_Load(object sender, EventArgs e)
                 ErrorLogging.AddException("Error in Register", ex);
                 FailureText.Text = ex.ToString();
             }
-		}
+        }
 
-		private string CleanUsername(string p)
-		{
+        private string CleanUsername(string p)
+        {
             p = p.Replace("<script>", "");
-			
-			return p;
-		}
-	}
+
+            return p;
+        }
+    }
 }
