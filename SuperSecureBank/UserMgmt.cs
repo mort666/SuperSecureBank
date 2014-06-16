@@ -8,30 +8,30 @@ using System.IO;
 
 namespace SuperSecureBank
 {
-	public static class UserMgmt
-	{
-		public static Int64 CreateUser(string username, string email, string pass)
-		{
-			try
-			{
-				string insertUser = @"INSERT INTO Users values ('{0}', '{1}', '{2}'); SELECT SCOPE_IDENTITY();";
-				SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ssbcon"].ConnectionString);
-				conn.Open();
-				insertUser = String.Format(insertUser, username, email, pass);
-				SqlCommand command = new SqlCommand(insertUser, conn);
-				Int64 userID = Convert.ToInt64(command.ExecuteScalar());
-				conn.Close();
-				return userID;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-		}
+    public static class UserMgmt
+    {
+        public static Int64 CreateUser(string username, string email, string pass)
+        {
+            try
+            {
+                string insertUser = @"INSERT INTO Users values ('{0}', '{1}', '{2}'); SELECT SCOPE_IDENTITY();";
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ssbcon"].ConnectionString);
+                conn.Open();
+                insertUser = String.Format(insertUser, username, email, pass);
+                SqlCommand command = new SqlCommand(insertUser, conn);
+                Int64 userID = Convert.ToInt64(command.ExecuteScalar());
+                conn.Close();
+                return userID;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-		public static Int64 LookupSession(string sessionValue)
-		{
-			Int64 userID = 0;
+        public static Int64 LookupSession(string sessionValue)
+        {
+            Int64 userID = 0;
             try
             {
                 Int64 sessionID = 0;
@@ -47,7 +47,7 @@ namespace SuperSecureBank
 
                         while (reader.Read())
                         {
-                            userID = reader.GetInt64 (0);
+                            userID = reader.GetInt64(0);
                         }
                     }
                 }
@@ -56,12 +56,12 @@ namespace SuperSecureBank
             {
                 throw;
             }
-			return userID;
-		}
+            return userID;
+        }
 
-		public static string LookupUsername(Int64 userID)
-		{
-			string userName = "";
+        public static string LookupUsername(Int64 userID)
+        {
+            string userName = "";
             try
             {
                 string getUserName = "SELECT userName FROM Users WHERE userID = {0}";
@@ -82,12 +82,12 @@ namespace SuperSecureBank
             {
                 throw;
             }
-			return userName;
-		}
+            return userName;
+        }
 
-		public static Int64 CheckUser(string username, string password)
-		{
-			Int64 userID = 0;
+        public static Int64 CheckUser(string username, string password)
+        {
+            Int64 userID = 0;
             try
             {
                 string getUserID = "SELECT userID FROM Users WHERE userName = '{0}' AND password = '{1}'";
@@ -100,7 +100,7 @@ namespace SuperSecureBank
 
                     while (reader.Read())
                     {
-                        userID = reader.GetInt64 (0);
+                        userID = reader.GetInt64(0);
                     }
                 }
             }
@@ -108,11 +108,11 @@ namespace SuperSecureBank
             {
                 throw;
             }
-			return userID;
-		}
+            return userID;
+        }
 
-		public static bool UserExists(string username)
-		{
+        public static bool UserExists(string username)
+        {
             Int64 userID = 0;
             try
             {
@@ -127,7 +127,7 @@ namespace SuperSecureBank
 
                     while (reader.Read())
                     {
-                        userID = reader.GetInt64 (0);
+                        userID = reader.GetInt64(0);
                     }
                 }
             }
@@ -135,11 +135,11 @@ namespace SuperSecureBank
             {
                 throw;
             }
-			return userID != 0;
-		}
+            return userID != 0;
+        }
 
-		public static Int64 CreateSession(Int64 userID)
-		{
+        public static Int64 CreateSession(Int64 userID)
+        {
             Int64 sessionID = 0;
             try
             {
@@ -156,11 +156,11 @@ namespace SuperSecureBank
             {
                 throw;
             }
-			return sessionID;
-		}
+            return sessionID;
+        }
 
-		internal static void RemoveSession(Int64 sessionID)
-		{
+        internal static void RemoveSession(Int64 sessionID)
+        {
             try
             {
                 string deleteSession = @"DELETE FROM sessions WHERE sessionID = {0}";
@@ -175,6 +175,6 @@ namespace SuperSecureBank
             {
                 throw;
             }
-		}
-	}
+        }
+    }
 }

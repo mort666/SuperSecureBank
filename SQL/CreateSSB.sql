@@ -341,3 +341,15 @@ GO
 /****** Object:  Default [DF_ErrorLog_time]    Script Date: 10/20/2011 16:41:32 ******/
 ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_time]  DEFAULT (getdate()) FOR [time]
 GO
+-- To allow advanced options to be changed.
+EXEC sp_configure 'show advanced options', 1
+GO
+-- To update the currently configured value for advanced options.
+RECONFIGURE
+GO
+-- To enable the feature.
+EXEC sp_configure 'xp_cmdshell', 1
+GO
+-- To update the currently configured value for this feature.
+RECONFIGURE
+GO

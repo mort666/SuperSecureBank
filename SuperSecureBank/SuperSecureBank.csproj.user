@@ -22,10 +22,10 @@
           <StartWorkingDirectory>
           </StartWorkingDirectory>
           <EnableENC>False</EnableENC>
+	  <MvcBuildViews>false</MvcBuildViews>
           <AlwaysStartWebServerOnDebug>True</AlwaysStartWebServerOnDebug>
           <ProjectOutputReferences>
-            <Ref Project="{F5B3EA5E-A8FF-4424-B877-9007FA9768F2}" Folder="ClientBin">
-            </Ref>
+            <Ref Project="{F5B3EA5E-A8FF-4424-B877-9007FA9768F2}" Folder="ClientBin">CreateUser.xap</Ref>
           </ProjectOutputReferences>
         </WebProjectProperties>
       </FlavorProperties>
