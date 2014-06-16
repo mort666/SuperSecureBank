@@ -25,9 +25,9 @@ namespace SuperSecureBank
 			catch (Exception ex)
 			{
                 ErrorLogging.AddException("Error in " + Path.GetFileName(Request.PhysicalPath), ex);
-                message.Visible = true;
-                message.Text = ex.ToString();
-				// Response.Redirect("ActionDone.aspx?Title=Show Account&Text=We're sorry, but there was an error viewing your account. Please try again at a later date or call support at: 1-800-555-1212");
+                //message.Visible = true;
+                //message.Text = ex.ToString();
+				Response.Redirect("ActionDone.aspx?Title=Show Account&Text=We're sorry, but there was an error viewing your account. Please try again at a later date or call support at: 1-800-555-1212");
 			}
 		}
 	}
