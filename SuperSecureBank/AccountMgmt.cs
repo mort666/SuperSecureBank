@@ -134,6 +134,57 @@ namespace SuperSecureBank
             }
 		}
 
+        internal static DataTable GetAccount(String accountID)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.Columns.Add("accountID");
+                dt.Columns.Add("balance");
+                dt.Columns.Add("LevelName");
+                dt.Columns.Add("LevelDescription");
+                dt.Columns.Add("TypeName");
+                dt.Columns.Add("TypeDescription");
+                dt.Columns.Add("Status");
+                dt.Columns.Add("Name");
+
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ssbcon"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("sp_GetAccount", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter parameter = null;
+                    parameter = new SqlParameter("@AccountId", SqlDbType.NVarChar, 250);
+                    if (accountID == null)
+                        parameter.Value = DBNull.Value;
+                    else
+                        parameter.Value = accountID;
+                    command.Parameters.Add(parameter);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr["accountID"] = reader.GetInt64 (1);
+                        dr["balance"] = string.Format("{0:C}", reader.GetInt64 (3));
+                        dr["LevelName"] = reader.GetString(4);
+                        dr["LevelDescription"] = reader.GetString(5);
+                        dr["TypeName"] = reader.GetString(6);
+                        dr["TypeDescription"] = reader.GetString(7);
+                        dr["Status"] = reader.GetString(8);
+                        dr["Name"] = reader.GetString(2);
+                        dt.Rows.Add(dr);
+                    }
+                }
+            }
+            catch 
+            {
+                throw;
+            }
+            return dt;
+        }
+
 		internal static ListItem[] GetAccountList(Int64 userID)
 		{
 			List<ListItem> items = new List<ListItem>();
@@ -150,7 +201,7 @@ namespace SuperSecureBank
                     while (reader.Read())
                     {
                         Int64 accountID = reader.GetInt64 (1);
-                        Int64 balance = reader.GetInt64 (2);
+                        Int64 balance = reader.GetInt64 (3);
                         items.Add(new ListItem(string.Format("{0} : {1:C}", accountID, balance), accountID.ToString(), balance > 0));
                     }
                 }

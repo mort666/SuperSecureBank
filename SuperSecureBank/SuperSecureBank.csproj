@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Information Security\AntiXSS Library v4.2\NET40\AntiXSSLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,6 +108,7 @@
     <Content Include="Images\SettingsAlt.png" />
     <Content Include="Images\StatusNotifier.png" />
     <Content Include="Images\Stocks.png" />
+    <Content Include="ShowAccount.aspx" />
     <Content Include="Silverlight.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -237,6 +241,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SessionIDSingleton.cs" />
+    <Compile Include="ShowAccount.aspx.cs">
+      <DependentUpon>ShowAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowAccount.aspx.designer.cs">
+      <DependentUpon>ShowAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

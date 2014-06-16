@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-	CodeBehind="ViewAccount.aspx.cs" Inherits="SuperSecureBank.ViewAccount" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ShowAccount.aspx.cs"
+    Inherits="SuperSecureBank.ShowAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -11,7 +11,7 @@
 		<p>From this page you can view each of your accounts and balances.</p>
 	<div>
 		<asp:Label visible="false" ID="message" runat="server" />
-		<asp:GridView ID="Accounts" runat="server" CellPadding="4" ForeColor="#333333"
+		<asp:GridView ID="Account" runat="server" CellPadding="4" ForeColor="#333333"
 			GridLines="Both" AutoGenerateColumns="False" DataKeyNames="accountID" 
 			PageSize="1000" ShowFooter="True">
 			<HeaderStyle BackColor="#4b6c9e" Font-Bold="True" ForeColor="White" />
@@ -30,6 +30,8 @@
 					SortExpression="TypeDescription"  HtmlEncode="false"/>
 				<asp:BoundField DataField="Status" HeaderText="Current Status" 
 					SortExpression="Status" HtmlEncode="false" />
+                <asp:BoundField DataField="Name" HeaderText="Account Name" 
+					SortExpression="Name" HtmlEncode="false" />
 			</Columns>
 			<RowStyle BackColor="#FFFFFF" />
 		</asp:GridView>

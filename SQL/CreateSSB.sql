@@ -127,6 +127,41 @@ FROM            dbo.Users INNER JOIN
                          dbo.AccountTypes ON dbo.Accounts.type = dbo.AccountTypes.type INNER JOIN
                          dbo.AccountStatus ON dbo.Accounts.status = dbo.AccountStatus.status
 GO
+/****** Object:  StoredProcedure [dbo].[sp_GetAccount]    Script Date: 6/16/2014 10:39:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATEPROCEDURE [dbo].[sp_GetAccount](@AccountId NVARCHAR(250))
+AS
+BEGIN
+    DECLARE @sqlcmd NVARCHAR(MAX);
+    SET @sqlcmd = N' SELECT dbo.Users.userID, dbo.Accounts.accountID, dbo.Accounts.name, dbo.Accounts.balance, dbo.AccountLevels.Name AS LevelName, dbo.AccountLevels.Description AS LevelDescription, dbo.AccountTypes.Name AS TypeName, dbo.AccountTypes.Description AS TypeDescription, dbo.AccountStatus.Description AS Status FROM dbo.Users INNER JOIN dbo.Accounts ON dbo.Users.userID = dbo.Accounts.userID INNER JOIN dbo.AccountLevels ON dbo.Accounts. LEVEL = dbo.AccountLevels. LEVEL INNER JOIN dbo.AccountTypes ON dbo.Accounts.type = dbo.AccountTypes.type INNER JOIN dbo.AccountStatus ON dbo.Accounts.status = dbo.AccountStatus.status WHERE accountID = ''' + @AccountId + '''';
+	
+    EXECUTE(@sqlcmd)
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_GetAccountSafe]    Script Date: 6/16/2014 10:40:30 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_GetAccountSafe](@AccountID NVARCHAR(250))
+AS
+BEGIN
+    DECLARE @sqlcmd NVARCHAR(MAX);
+    DECLARE @params NVARCHAR(MAX);
+    SET @sqlcmd = N'SELECT dbo.Users.userID, dbo.Accounts.accountID, dbo.Accounts.name, dbo.Accounts.balance, 
+    	dbo.AccountLevels.Name AS LevelName, dbo.AccountLevels.Description AS LevelDescription, dbo.AccountTypes.Name 
+    	AS TypeName, dbo.AccountTypes.Description AS TypeDescription, dbo.AccountStatus.Description AS Status 
+		FROM dbo.Users INNER JOIN dbo.Accounts ON dbo.Users.userID = dbo.Accounts.userID 
+    	INNER JOIN dbo.AccountLevels ON dbo.Accounts. LEVEL = dbo.AccountLevels. LEVEL INNER 
+    	JOIN dbo.AccountTypes ON dbo.Accounts.type = dbo.AccountTypes.type INNER JOIN dbo.AccountStatus 
+    	ON dbo.Accounts.status = dbo.AccountStatus.status WHERE accountID = @AccountId';
+    SET @params = N'@AccountID NVARCHAR(250)';
+    EXECUTE sp_executesql @sqlcmd, @params, @AccountID;
+END
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 

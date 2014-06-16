@@ -8,3 +8,5 @@ C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\bin\SuperSecureBank.pdb
 C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.dll
 C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.pdb
 C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\obj\Release\SuperSecureBank.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\bin\AntiXSSLibrary.dll
+C:\Users\Admin\Desktop\SuperSecureBank\SuperSecureBank\bin\AntiXSSLibrary.xml
